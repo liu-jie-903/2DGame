@@ -19,8 +19,8 @@ public class Player extends Entity {
         getPlayerImage();
     }
     public final void setDefultValues(){
-        x=100;
-        y=100;
+        worldX=100;
+        worldY=100;
         speed = 4;
         direction = "down";
     }
@@ -45,19 +45,19 @@ public class Player extends Entity {
             
             if (keyH.upPressed == true){
                 direction = "up";
-                y -= speed;
+                worldY -= speed;
             } 
             else if (keyH.downPressed == true) {
                 direction = "down";
-                y += speed;
+                worldY += speed;
             }
             else if (keyH.leftPressed == true) {
                 direction = "left";
-                x -= speed;
+                worldX -= speed;
             }
             else if (keyH.rightPressed == true) {
                 direction = "right";
-                x += speed;
+                worldX += speed;
             }
     
             // player-image changes in every 10 frames
@@ -110,7 +110,7 @@ public class Player extends Entity {
                 }    
                 break;           
         }
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, worldX, worldY, gp.tileSize, gp.tileSize, null);
     }
 
 }
